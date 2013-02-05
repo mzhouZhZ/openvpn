@@ -1261,6 +1261,7 @@ resolve_remote (struct link_socket *sock,
 		  ASSERT (0);
 		}
 
+        {
 		  struct addrinfo* ai;
 		  /* Temporary fix, this need to be changed for dual stack */
 		  status = openvpn_getaddrinfo(flags, sock->remote_host, retry,
@@ -1297,6 +1298,7 @@ resolve_remote (struct link_socket *sock,
                 sock->info.lsa->remote.addr.in6.sin6_port = htons (sock->remote_port);
                 break;
             }
+        }
 	}
   
       /* should we re-use previous active remote address? */
